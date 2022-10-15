@@ -2,7 +2,7 @@
 
 
 // запрос количества вводимых строк
-Console.Write("Сколько строк будет введено - ");
+Console.Write("Укажите сколько строк будет введено - ");
 int number = Convert.ToInt32(Console.ReadLine());
 if (number >= 0)
 {
@@ -13,7 +13,7 @@ if (number >= 0)
 } 
 else {Console.WriteLine("Введите целое число больше нуля!");}
 
-
+// организуем ввод строк в массив
 string[] InitArrray(int number)
 {
     string[] newArray = new string[number];
@@ -26,7 +26,7 @@ string[] InitArrray(int number)
 }
 
 
-// выводим содержимое массива на экран
+// выводим содержимое получившегося массива на экран
 void ViewArray (string[] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -36,10 +36,10 @@ void ViewArray (string[] array)
     Console.WriteLine("");
 }
 
-// ищем строки длинной короче 4х символов
+// ищем и выводим строки длинной короче 4х символов
 void SeachArray(string[] firstArray)
 {
-    int n =0;
+    int n = 0; // если останется равно нулю, значит ни чего не нашлось
     Console.WriteLine("Выводим строки длиннее 3х симолов:");
     for (int i = 0; i < firstArray.GetLength(0); i++)
     {
@@ -50,6 +50,5 @@ void SeachArray(string[] firstArray)
         }
     
     }  
-    if (n == 0) {Console.WriteLine("строк длиннее 3х символов - НЕТ!");} 
-    //return firstArray; 
+    if (n == 0) {Console.WriteLine("строк длиннее 3х символов - НЕТ!");} //строк короче 4х символов нет
 }
