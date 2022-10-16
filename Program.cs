@@ -12,11 +12,11 @@ if (number >= 0)
     string[] nArray = SeachArray(array);
     if (nArray.GetLength(0) == 0) // есть что выводить? если ноль, то строк короче 4х символов нет
     {
-        Console.WriteLine("строк длиннее 3х символов - НЕТ!");
+        Console.WriteLine("Строк короче 4х символов НЕТ!");
     }
     else
     {
-        Console.WriteLine("Выводим строки короче 3х симолов:");
+        Console.WriteLine("Выводим строки короче 4х симолов:");
         ViewArray(nArray);
     }
 } 
