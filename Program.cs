@@ -9,7 +9,16 @@ if (number >= 0)
     string[] array = InitArrray(number);
     Console.WriteLine("Вы ввели следующие строки:");
     ViewArray(array);
-    SeachArray(array);
+    string[] nArray = SeachArray(array);
+    if (nArray.GetLength(0) == 0) // есть что выводить? если ноль, то строк короче 4х символов нет
+    {
+        Console.WriteLine("строк длиннее 3х символов - НЕТ!");
+    }
+    else
+    {
+        Console.WriteLine("Выводим строки короче 3х симолов:");
+        ViewArray(nArray);
+    }
 } 
 else {Console.WriteLine("Введите целое число больше нуля!");}
 
@@ -37,18 +46,18 @@ void ViewArray (string[] array)
 }
 
 // ищем и выводим строки длинной короче 4х символов
-void SeachArray(string[] firstArray)
+string[] SeachArray(string[] firstArray)
 {
-    int n = 0; // если останется равно нулю, значит ни чего не нашлось
-    Console.WriteLine("Выводим строки длиннее 3х симолов:");
+    int n = 0; // размер массива c результатом
+    string[] newArray = new string[n];
     for (int i = 0; i < firstArray.GetLength(0); i++)
     {
         if (firstArray[i].Length < 4 )
         {
-            Console.Write($"{firstArray[i]} \t");
             n ++;
-        }
-    
+            Array.Resize(ref newArray, n);
+            newArray[n-1] = firstArray[i];
+        }   
     }  
-    if (n == 0) {Console.WriteLine("строк длиннее 3х символов - НЕТ!");} //строк короче 4х символов нет
+    return newArray;
 }
